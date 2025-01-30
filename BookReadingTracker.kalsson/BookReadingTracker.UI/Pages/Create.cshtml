@@ -1,0 +1,28 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create Book";
+}
+
+<h1>Create a New Book</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Book.Title" class="form-label"></label>
+        <input asp-for="Book.Title" class="form-control" />
+        <span asp-validation-for="Book.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.Author" class="form-label"></label>
+        <input asp-for="Book.Author" class="form-control" />
+        <span asp-validation-for="Book.Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.TotalPages" class="form-label"></label>
+        <input asp-for="Book.TotalPages" class="form-control" />
+        <span asp-validation-for="Book.TotalPages" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Book</button>
+</form>
+
+<a class="btn btn-secondary" asp-page="/Index">Back to List</a>
