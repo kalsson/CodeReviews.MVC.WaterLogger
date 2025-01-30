@@ -1,5 +1,4 @@
-﻿t
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookReadingTracker.UI", "BookReadingTracker.UI\BookReadingTracker.UI.csproj", "{425D9AB8-6BB1-40DE-A8EA-AB093EC8603B}"
 EndProject
 Global
