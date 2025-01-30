@@ -1,0 +1,16 @@
+﻿t
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookReadingTracker.UI", "BookReadingTracker.UI\BookReadingTracker.UI.csproj", "{425D9AB8-6BB1-40DE-A8EA-AB093EC8603B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{425D9AB8-6BB1-40DE-A8EA-AB093EC8603B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425D9AB8-6BB1-40DE-A8EA-AB093EC8603B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425D9AB8-6BB1-40DE-A8EA-AB093EC8603B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425D9AB8-6BB1-40DE-A8EA-AB093EC8603B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
