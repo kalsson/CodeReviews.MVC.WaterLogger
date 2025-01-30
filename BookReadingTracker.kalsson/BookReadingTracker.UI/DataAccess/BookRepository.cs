@@ -5,9 +5,9 @@ namespace BookReadingTracker.UI.DataAccess;
 
 public class BookRepository
 {
-    private readonly string _connectionString;
+    private readonly string? _connectionString;
 
-        public BookRepository(string connectionString)
+        public BookRepository(string? connectionString)
         {
             _connectionString = connectionString;
         }

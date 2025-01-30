@@ -1,3 +1,5 @@
+using BookReadingTracker.UI.DataAccess;
+using BookReadingTracker.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -5,14 +7,19 @@ namespace BookReadingTracker.UI.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly BookRepository _bookRepository;
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public IndexModel(BookRepository bookRepository)
     {
-        _logger = logger;
+        _bookRepository = bookRepository;
     }
+
+    public List<Book> Books { get; set; } = new();
 
     public void OnGet()
     {
+        // Fetch all books from the database
+        Books = _bookRepository.GetAllBooks();
     }
+
 }

@@ -1,9 +1,36 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home Page";
 }
 
-<a class="btn btn-success" asp-area="" asp-page="/Create">
-    Add Record
-</a>
+<h1>Book Reading Tracker</h1>
+
+<a class="btn btn-success" asp-area="" asp-page="/Create">Add Record</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages Read</th>
+        <th>Total Pages</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in Model.Books)
+    {
+        <tr>
+            <td>@book.Title</td>
+            <td>@book.Author</td>
+            <td>@book.PagesRead</td>
+            <td>@book.TotalPages</td>
+            <td>
+                <a class="btn btn-primary" asp-page="/Edit" asp-route-id="@book.Id">Edit</a>
+                <a class="btn btn-danger" asp-page="/Delete" asp-route-id="@book.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
