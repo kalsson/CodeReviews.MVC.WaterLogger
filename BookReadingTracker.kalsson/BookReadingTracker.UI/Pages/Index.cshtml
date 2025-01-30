@@ -4,33 +4,42 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Book Reading Tracker</h1>
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center text-white">Book Reading Tracker</h1>
+    </div>
+</div>
 
-<a class="btn btn-success" asp-area="" asp-page="/Create">Add Record</a>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Pages Read</th>
-        <th>Total Pages</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var book in Model.Books)
-    {
-        <tr>
-            <td>@book.Title</td>
-            <td>@book.Author</td>
-            <td>@book.PagesRead</td>
-            <td>@book.TotalPages</td>
-            <td>
-                <a class="btn btn-primary" asp-page="/Edit" asp-route-id="@book.Id">Edit</a>
-                <a class="btn btn-danger" asp-page="/Delete" asp-route-id="@book.Id">Delete</a>
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-success" asp-area="" asp-page="/Create">Add Record</a>
+    </div>
+    <div class="col-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="text-white">Title</th>
+                <th class="text-white">Author</th>
+                <th class="text-white">Pages Read</th>
+                <th class="text-white">Total Pages</th>
+                <th class="text-white">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td class="text-white">@book.Title</td>
+                    <td class="text-white">@book.Author</td>
+                    <td class="text-white">@book.PagesRead</td>
+                    <td class="text-white">@book.TotalPages</td>
+                    <td class="text-white">
+                        <a class="btn btn-primary" asp-page="/Edit" asp-route-id="@book.Id">Edit</a>
+                        <a class="btn btn-danger" asp-page="/Delete" asp-route-id="@book.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
