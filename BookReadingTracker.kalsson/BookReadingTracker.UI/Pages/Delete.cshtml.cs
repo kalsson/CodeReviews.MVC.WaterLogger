@@ -19,22 +19,40 @@ namespace BookReadingTracker.UI.Pages
 
         public IActionResult OnGet(int id)
         {
-            Book = _bookRepository.GetBookById(id);
-
-            if (Book == null)
+            try
             {
-                return RedirectToPage("/Index");
-            }
+                Book = _bookRepository.GetBookById(id);
 
-            return Page();
+                if (Book == null)
+                {
+                    return RedirectToPage("/Index");
+                }
+
+                return Page();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+                return RedirectToPage("/Error");
+            }
         }
 
         public IActionResult OnPost(int id)
         {
-            _bookRepository.DeleteBook(id);
+            try
+            {
+                _bookRepository.DeleteBook(id);
+                return RedirectToPage("/Index");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+                ModelState.AddModelError(string.Empty, "An error occurred while trying to delete the book. Please try again.");
 
-            return RedirectToPage("/Index");
+                return Page();
+            }
         }
-
     }
 }

@@ -28,9 +28,19 @@ namespace BookReadingTracker.UI.Pages
                 return Page();
             }
 
-            _bookRepository.AddBook(Book);
-            return RedirectToPage("/Index");
-        }
+            try
+            {
+                _bookRepository.AddBook(Book);
+                return RedirectToPage("/Index");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+                ModelState.AddModelError(string.Empty, "An error occurred while saving the book. Please try again.");
 
+                return Page();
+            }
+        }
     }
 }

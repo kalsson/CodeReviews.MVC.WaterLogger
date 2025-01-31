@@ -18,8 +18,15 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        // Fetch all books from the database
-        Books = _bookRepository.GetAllBooks();
+        try
+        {
+            Books = _bookRepository.GetAllBooks();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            
+            Books = new List<Book>();
+        }
     }
-
 }
