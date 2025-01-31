@@ -16,17 +16,30 @@ public class IndexModel : PageModel
 
     public List<Book> Books { get; set; } = new();
 
-    public void OnGet()
+    // Pagination properties
+    public int CurrentPage { get; set; }
+    public int TotalPages { get; set; }
+    public const int PageSize = 8; // Number of records per page
+
+    public void OnGet(int currentPage = 1)
     {
         try
         {
-            Books = _bookRepository.GetAllBooks();
+            var allBooks = _bookRepository.GetAllBooks(); // Fetch all books
+            CurrentPage = currentPage;
+            TotalPages = (int)Math.Ceiling(allBooks.Count / (double)PageSize);
+
+            // Fetch books only for the current page using LINQ
+            Books = allBooks
+                .Skip((CurrentPage - 1) * PageSize)
+                .Take(PageSize)
+                .ToList();
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
-            
             Books = new List<Book>();
         }
     }
+
 }

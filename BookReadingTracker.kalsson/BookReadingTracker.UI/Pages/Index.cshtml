@@ -10,6 +10,12 @@
     </div>
 </div>
 
+<div class="row mb-3">
+    <div class="col-12">
+        <a class="btn btn-success" asp-area="" asp-page="/Create">Add Book</a>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-12">
         <div class="table-responsive">
@@ -44,7 +50,20 @@
 </div>
 
 <div class="row">
-    <div class="col-12">
-        <a class="btn btn-success" asp-area="" asp-page="/Create">Add Book</a>
+    <div class="col-12 d-flex justify-content-between">
+        <!-- Previous Button -->
+        @if (Model.CurrentPage > 1)
+        {
+            <a asp-page="Index" asp-route-currentPage="@(Model.CurrentPage - 1)" class="btn btn-secondary">Previous</a>
+        }
+
+        <!-- Simple pagination info -->
+        <span class="text-white align-self-center">Page @Model.CurrentPage of @Model.TotalPages</span>
+
+        <!-- Next Button -->
+        @if (Model.CurrentPage < Model.TotalPages)
+        {
+            <a asp-page="Index" asp-route-currentPage="@(Model.CurrentPage + 1)" class="btn btn-secondary">Next</a>
+        }
     </div>
 </div>
